@@ -21,7 +21,7 @@ const Card = ({ title, description, imageSrc }) => {
 
             <HStack onClick={handleClick} cursor="pointer">
               <Text fontWeight="500">See more</Text>
-              <FontAwesomeIcon icon={faArrowRight} />
+              <FontAwesomeIcon icon={faArrowRight} size="1x" />
             </HStack>
           </VStack>
         </VStack>
