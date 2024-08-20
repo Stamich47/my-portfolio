@@ -17,7 +17,7 @@ import FullScreenSection from "./FullScreenSection";
 import useSubmit from "../hooks/useSubmit";
 import { useAlertContext } from "../context/alertContext";
 
-const LandingSection = () => {
+const ContactMeSection = () => {
   const { isLoading, response, submit } = useSubmit();
   const { onOpen } = useAlertContext();
 
@@ -39,7 +39,7 @@ const LandingSection = () => {
       email: Yup.string().email("Invalid email address").required("Required"),
       type: Yup.string(),
       comment: Yup.string()
-        .min(10, "Comment must be at least 10 characters")
+        .min(25, "Comment must be at least 25 characters")
         .required("Required"),
     }),
   });
@@ -132,4 +132,4 @@ const LandingSection = () => {
   );
 };
 
-export default LandingSection;
+export default ContactMeSection;
