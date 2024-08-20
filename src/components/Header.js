@@ -44,8 +44,32 @@ const Header = () => {
     }
   };
 
+  const scrollPos = useRef(window.scrollY);
+  const headerRef = useRef(null);
+
+  const handleScroll = () => {
+    const currentScrollPos = window.scrollY;
+    const isScrollingUp = scrollPos.current > currentScrollPos;
+
+    if (headerRef.current) {
+      headerRef.current.style.transform = isScrollingUp
+        ? "translateY(0)"
+        : "translateY(-200px)";
+    }
+
+    scrollPos.current = currentScrollPos;
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <Box
+      ref={headerRef}
       position="fixed"
       top={0}
       left={0}
